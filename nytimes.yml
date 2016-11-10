@@ -1,0 +1,2 @@
+- go: http://www.nytimes.com/
+- assert_text_on_page: The New York Times Company

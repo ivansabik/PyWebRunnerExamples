@@ -3,14 +3,16 @@ sudo: required
 python:
   - 2.7
 script:
-  - pip install PyWebRunner
+  - pip install -r requirements.txt
   - webrunner google.yml
-before_script:
-  - sudo apt-get -y purge chromium-browser
-  - curl -L -O "http://chromedriver.storage.googleapis.com/2.23/chromedriver_linux64.zip"
-  - unzip chromedriver_linux64.zip && chmod +x chromedriver && sudo mv chromedriver /usr/local/bin
-  - export CHROMEDRIVER_VERSION=2.23
-  - export CHROME_BIN=chromium-browser
+# From https://github.com/google/pageloader/blob/master/.travis.yml
+before_install:
+  - export CHROMEDRIVER_BINARY=/usr/bin/chromium-browser
+  - export CHROMEDRIVER_ARGS=--no-sandbox
+  - /usr/bin/chromium-browser --version
   - export DISPLAY=:99.0
-  - "sh -e /etc/init.d/xvfb start"
-  - sleep 3
+  - sh -e /etc/init.d/xvfb start
+before_script:
+  - wget http://chromedriver.storage.googleapis.com/2.23/chromedriver_linux64.zip
+  - unzip chromedriver_linux64.zip
+  - export PATH=$PATH:$PWD
