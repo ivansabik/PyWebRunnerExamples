@@ -1,0 +1,9 @@
+- go: https://www.google.com/
+- set_value:
+  - "#lst-ib"
+  - PyWebRunner
+- send_key:
+  - "#lst-ib"
+  - "ENTER"
+- click: "#rso > div:nth-child(1) > div:nth-child(1) > div > h3 > a"
+- assert_text_on_page: A supercharged Python wrapper for Selenium
