@@ -5,6 +5,7 @@ python:
 script:
   - pip install -r requirements.txt
   - webrunner google.yml
+  - webrunner nytimes.yml
 # From https://github.com/google/pageloader/blob/master/.travis.yml
 before_install:
   - export CHROMEDRIVER_BINARY=/usr/bin/chromium-browser

@@ -1,2 +1,3 @@
 - go: http://www.nytimes.com/
-- assert_text_on_page: The New York Times Company
+- click: "#rso > div:nth-child(1) > div:nth-child(1) > div > h3 > a"
+- assert_text_on_page: Recomendados
